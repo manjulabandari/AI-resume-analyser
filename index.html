@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-file-pdf"></i> Resume Analyzer Pro
+            </a>
+            <span class="navbar-text">AI-Powered Resume Analysis with Job Matching</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Optimize Your Resume</h1>
+                    <p class="lead mb-4">Get instant, AI-powered feedback to make your resume stand out to recruiters and hiring managers. Compare your resume against job descriptions.</p>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Comprehensive Analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Job Description Matching</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Skill Gap Analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle text-success"></i>
+                            <span>Actionable Recommendations</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="upload-container">
+                        <div class="form-section">
+                            <!-- Resume Upload -->
+                            <div class="mb-4">
+                                <h4>1. Upload Your Resume</h4>
+                                <div class="upload-box" id="uploadBox">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h5>Upload Your Resume</h5>
+                                    <p>Drag and drop or click to select</p>
+                                    <small>Supports: PDF, DOCX, DOC, TXT</small>
+                                    <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.txt" hidden>
+                                </div>
+                            </div>
+
+                            <!-- Job Description -->
+                            <div class="mb-4">
+                                <h4>2. (Optional) Paste Job Description</h4>
+                                <textarea id="jobDescription" class="form-control" rows="6" placeholder="Paste the job description here for better matching..."></textarea>
+                                <small class="text-muted">This helps us identify skills you should highlight</small>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-lg" id="analyzeBtn" disabled>
+                                    <i class="fas fa-play"></i> Analyze Resume
+                                </button>
+                                <button class="btn btn-secondary btn-lg" id="tryDemoBtn">
+                                    <i class="fas fa-star"></i> Try Demo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Results Section -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+        <div class="container">
+            <!-- Score Card -->
+            <div class="score-card mb-5">
+                <div class="score-display">
+                    <div class="score-circle" id="scoreCircle">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                            <circle cx="50" cy="50" r="45" class="score-progress" id="scoreProgress"></circle>
+                        </svg>
+                        <div class="score-content">
+                            <div class="score-number" id="scoreNumber">0</div>
+                            <div class="score-label">Score</div>
+                        </div>
+                    </div>
+                    <div class="score-info">
+                        <h2 id="scoreTitle">Resume Analysis Complete</h2>
+                        <p id="scoreDescription"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Match Card (if job description provided) -->
+            <div id="jobMatchCard" class="job-match-card mb-5" style="display: none;">
+                <div class="match-header">
+                    <h3><i class="fas fa-target"></i> Job Match Analysis</h3>
+                </div>
+                <div class="match-content">
+                    <div class="match-stat">
+                        <span class="match-label">Match Score</span>
+                        <span class="match-value" id="matchPercentage">0%</span>
+                    </div>
+                    <div class="matched-skills">
+                        <h5>Matched Skills ✓</h5>
+                        <div id="matchedSkillsList" class="skills-list"></div>
+                    </div>
+                    <div class="missing-skills">
+                        <h5>Missing Skills ⚠</h5>
+                        <div id="missingSkillsList" class="skills-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagewise Report Navigation -->
+            <div class="report-navigation mb-4">
+                <button class="btn btn-outline-primary page-btn active" data-page="strengths-page">Strengths</button>
+                <button class="btn btn-outline-primary page-btn" data-page="improvements-page">Areas for Improvement</button>
+                <button class="btn btn-outline-primary page-btn" data-page="recommendations-page">Recommendations</button>
+                <button class="btn btn-outline-primary page-btn" data-page="statistics-page">Resume Statistics</button>
+                <button class="btn btn-outline-primary page-btn" data-page="company-match-page">Company Match</button>
+                <button class="btn btn-outline-primary page-btn" data-page="sections-page">Section-wise Analysis</button>
+            </div>
+
+            <div class="report-pages">
+                <section id="strengths-page" class="report-page active">
+                    <div class="content-card">
+                        <h3>1 | Strengths</h3>
+                        <ul id="strengthsList" class="list-unstyled"></ul>
+                    </div>
+                </section>
+
+                <section id="improvements-page" class="report-page">
+                    <div class="content-card">
+                        <h3>2 | Areas for Improvement</h3>
+                        <ul id="improvementsList" class="list-unstyled"></ul>
+                    </div>
+                </section>
+
+                <section id="recommendations-page" class="report-page">
+                    <div class="content-card">
+                        <h3>3 | Recommendations</h3>
+                        <ul id="recommendationsList" class="list-unstyled"></ul>
+                    </div>
+                </section>
+
+                <section id="statistics-page" class="report-page">
+                    <div class="content-card">
+                        <h3>4 | Resume Statistics</h3>
+                        <div class="stats-grid" id="statisticsGrid"></div>
+                    </div>
+                </section>
+
+                <section id="company-match-page" class="report-page">
+                    <div class="content-card">
+                        <h3>6 | Company Match Recommendations</h3>
+                        <div id="companyMatchGrid" class="stats-grid"></div>
+                    </div>
+                </section>
+
+                <section id="sections-page" class="report-page">
+                    <div class="content-card">
+                        <h3>5 | Section-wise Analysis</h3>
+                        <div class="sections-grid" id="sectionsGrid"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons mt-5">
+                <button class="btn btn-primary btn-lg" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download Report
+                </button>
+                <button class="btn btn-secondary btn-lg" id="resetBtn">
+                    <i class="fas fa-redo"></i> Analyze Another
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Resume Analyzer Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="spinner-overlay" style="display: none;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Analyzing...</span>
+        </div>
+        <p>Analyzing your resume...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
