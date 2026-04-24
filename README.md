@@ -101,11 +101,11 @@ git clone https://github.com/manjulabandari/AI-Resume-Analyzer-and-LinkedIn-Scra
 cd AI-Powered-Resume-Analyzer-and-LinkedIn-Scraper-with-Selenium
 
 # Install dependencies
-pip install -r requirements.txt
-▶️ Run the Application
+pip install -r requirements.txt    
+▶️ Run the Application   
 streamlit run app.py
 
-Open in browser:
+Open in browser:  
 👉 http://127.0.0.1:5000/
 
 🎨 Features Demo
@@ -140,9 +140,9 @@ Optimized performance for faster analysis
 Clean UI for better user experience
 🎯 Developed By
 
-👩‍💻 Manjula Bandari
+👩‍💻 Manjula Bandari                     
 AI-Resume-Analyser – Your intelligent career companion powered by AI
-
+  
 📫 Contact
 📧 Email: manjulabandari21@gmail.com     
 🌐 LinkedIn: https://www.linkedin.com/in/manjula-bandari-348347361
