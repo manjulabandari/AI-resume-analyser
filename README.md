@@ -1,6 +1,5 @@
 # AI-Resume-Analyser
 
-License: MIT
 
 # Problem Statement
 
