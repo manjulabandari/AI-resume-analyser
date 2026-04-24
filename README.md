@@ -103,9 +103,10 @@ cd AI-Powered-Resume-Analyzer-and-LinkedIn-Scraper-with-Selenium
 pip install -r requirements.txt    
 ▶️ Run the Application   
 streamlit run app.py
+ Streamlit application http://localhost:8501/
 
 Open in browser:  
-👉 http://192.168.0.129:8501/
+👉 http://localhost:8501
 
 🎨 Features Demo
 📄 Resume Analysis
