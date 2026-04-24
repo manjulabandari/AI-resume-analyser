@@ -1,8 +1,8 @@
-AI-Resume Analyser
+# AI-Resume Analyser
 
 License: MIT
 
-🎯 Problem Statement
+# Problem Statement
 
 Many students and professionals struggle with:
 
@@ -14,7 +14,7 @@ Skill Development: Identifying what to learn next
 
 Job Search: Finding relevant job opportunities
 
-🚀 Solution: AI-Resume-Analyser
+# Solution: AI-Resume-Analyser
 
 AI-Resume-Analyser is an intelligent AI-powered career mentor that:
 
@@ -24,7 +24,7 @@ Identifies skill gaps and suggests learning paths
 Scrapes LinkedIn job data for real-time job insights
 Recommends suitable job roles based on user profiles
 
-✨ Key Features
+# Key Features
 
 1. Advanced Resume Parsing
 PyPDF2 Integration: Efficient text extraction from PDF resumes
@@ -71,12 +71,14 @@ Hugging Face Transformers
 Selenium WebDriver
 📊 Performance Metrics
 Component	Status	Performance
-Resume Parsing	✅ Working	High accuracy
-Resume Analysis	✅ Working	Smart insights
-RAG Pipeline	✅ Working	Context-aware
-LinkedIn Scraper	✅ Working	Real-time data
-Web Interface	✅ Working	User-friendly
-🎯 Project Structure
+Resume Parsing
+✅ Working	High accuracy Resume Analysis
+✅ Working	Smart insights RAG Pipeline	
+✅ Working	Context-awareLinkedIn Scraper	
+✅ Working	Real-time dataWeb Interface	
+✅ Working	User-friendly
+
+# Project Structure
 Sahay-AI/
 ├── app.py                     # Main Streamlit app
 ├── src/
@@ -86,10 +88,11 @@ Sahay-AI/
 ├── data/                     # Sample resumes
 ├── requirements.txt
 └── README.md
+
 🚀 Quick Start
 📌 Prerequisites
-Python 3.8+
-pip
+Python 3.8+ pip
+
 ⚙️ Installation
 # Clone the repository
 git clone https://github.com/manjulabandari/AI-Resume-Analyzer-and-LinkedIn-Scraper-with-Selenium.git
