@@ -1,4 +1,4 @@
-# AI-Resume Analyser
+# AI-Resume-Analyser
 
 License: MIT
 
@@ -141,8 +141,8 @@ Clean UI for better user experience
 🎯 Developed By
 
 👩‍💻 Manjula Bandari
-Sahay AI – Your intelligent career companion powered by AI
+AI-Resume-Analyser – Your intelligent career companion powered by AI
 
 📫 Contact
-📧 Email: manjulabandari21@gmail.com
+📧 Email: manjulabandari21@gmail.com     
 🌐 LinkedIn: https://www.linkedin.com/in/manjula-bandari-348347361
