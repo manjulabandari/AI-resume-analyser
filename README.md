@@ -143,6 +143,6 @@ Clean UI for better user experience
 👩‍💻 Manjula Bandari                     
 AI-Resume-Analyser – Your intelligent career companion powered by AI
   
-📫 Contact
+📫 Contact                
 📧 Email: manjulabandari21@gmail.com     
 🌐 LinkedIn: https://www.linkedin.com/in/manjula-bandari-348347361
