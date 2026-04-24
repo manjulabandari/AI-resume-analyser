@@ -105,7 +105,7 @@ pip install -r requirements.txt
 streamlit run app.py
 
 Open in browser:  
-👉 http://127.0.0.1:5000/
+👉 http://192.168.0.129:8501/
 
 🎨 Features Demo
 📄 Resume Analysis
