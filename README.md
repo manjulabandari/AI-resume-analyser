@@ -7,19 +7,25 @@ License: MIT
 Many students and professionals struggle with:
 
 Resume Analysis: Understanding what skills to highlight
-Career Guidance: Choosing the right career path
-Skill Development: Identifying what to learn next
-Job Search: Finding relevant job opportunities
-🚀 Solution: Sahay AI
 
-Sahay AI is an intelligent AI-powered career mentor that:
+Career Guidance: Choosing the right career path
+
+Skill Development: Identifying what to learn next
+
+Job Search: Finding relevant job opportunities
+
+🚀 Solution: AI-Resume-Analyser
+
+AI-Resume-Analyser is an intelligent AI-powered career mentor that:
 
 Analyzes resumes using advanced PDF parsing
 Provides personalized career guidance using RAG (Retrieval-Augmented Generation)
 Identifies skill gaps and suggests learning paths
 Scrapes LinkedIn job data for real-time job insights
 Recommends suitable job roles based on user profiles
+
 ✨ Key Features
+
 1. Advanced Resume Parsing
 PyPDF2 Integration: Efficient text extraction from PDF resumes
 Smart Text Processing: Handles structured and unstructured resumes
