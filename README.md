@@ -95,7 +95,7 @@ Python 3.8+ pip
 
 ⚙️ Installation
 # Clone the repository
-git clone https://github.com/manjulabandari/AI-Resume-Analyzer-and-LinkedIn-Scraper-with-Selenium.git
+git clone https://github.com/manjulabandari/AI-resume-analyser.git
 
 # Navigate to project
 cd AI-Powered-Resume-Analyzer-and-LinkedIn-Scraper-with-Selenium
